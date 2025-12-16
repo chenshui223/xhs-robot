@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Account {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  cookie    String?
+  status    String   @default("active")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model TaskLog {
+  id        Int      @id @default(autoincrement())
+  type      String   // 'trend', 'compliance', 'interaction'
+  status    String   @default("pending") // 'pending', 'running', 'completed', 'failed'
+  details   String?
+  result    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model TrendData {
+  id        Int      @id @default(autoincrement())
+  keyword   String
+  title     String
+  likes     Int
+  url       String?
+  scrapedAt DateTime @default(now())
+}
