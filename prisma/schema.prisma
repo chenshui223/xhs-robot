@@ -11,7 +11,7 @@ model Account {
   id        Int      @id @default(autoincrement())
   username  String   @unique
   cookie    String?
-  status    String   @default("active")
+  status    String   @default("pending")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -32,5 +32,14 @@ model TrendData {
   title     String
   likes     Int
   url       String?
+  comments  String?  // JSON array of top 50 comments
   scrapedAt DateTime @default(now())
+}
+
+model GeneratedPost {
+  id        Int      @id @default(autoincrement())
+  keyword   String
+  content   String
+  sourceComments String? // JSON array of comments used for generation
+  generatedAt DateTime @default(now())
 }

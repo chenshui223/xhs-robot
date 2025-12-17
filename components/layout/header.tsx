@@ -17,7 +17,7 @@ export function Header({ toggleSidebar }: { toggleSidebar: () => void }) {
         <span className="sr-only">Toggle navigation menu</span>
       </Button>
       <div className="w-full flex-1">
-        <h1 className="text-xl font-bold">小飞薯 Dashboard</h1>
+        <h1 className="text-xl font-bold">小红书robot Dashboard</h1>
       </div>
       <Link href="/settings">
         <Button variant="ghost">设置</Button>

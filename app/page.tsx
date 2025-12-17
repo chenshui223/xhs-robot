@@ -1,6 +1,6 @@
 import { DashboardLayout } from "@/components/layout/dashboard-layout"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { LaunchBrowserButton } from "@/components/browser-launch-button"
 import { TrendingUp, Users, ShieldCheck, Monitor } from "lucide-react"
 
 export default function DashboardPage() {
@@ -17,8 +17,8 @@ export default function DashboardPage() {
             <Monitor className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">已连接</div>
-            <p className="text-xs text-muted-foreground">浏览器实例正在运行</p>
+            <div className="text-2xl font-bold">待启动</div>
+            <p className="text-xs text-muted-foreground">点击按钮启动浏览器实例</p>
           </CardContent>
         </Card>
         
@@ -28,7 +28,7 @@ export default function DashboardPage() {
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">3</div>
+            <div className="text-2xl font-bold">-</div>
             <p className="text-xs text-muted-foreground">已配置的账号</p>
           </CardContent>
         </Card>
@@ -39,7 +39,7 @@ export default function DashboardPage() {
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">12</div>
+            <div className="text-2xl font-bold">0</div>
             <p className="text-xs text-muted-foreground">已完成的任务</p>
           </CardContent>
         </Card>
@@ -50,7 +50,7 @@ export default function DashboardPage() {
             <ShieldCheck className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">8</div>
+            <div className="text-2xl font-bold">0</div>
             <p className="text-xs text-muted-foreground">今日检测次数</p>
           </CardContent>
         </Card>
@@ -64,17 +64,8 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span>热点抓取 - 美妆</span>
-                <span className="text-sm text-green-500">已完成</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span>合规检测 - 新品推广</span>
-                <span className="text-sm text-yellow-500">警告</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span>热点抓取 - 旅行</span>
-                <span className="text-sm text-green-500">已完成</span>
+              <div className="flex items-center justify-between text-muted-foreground">
+                <span>暂无任务记录</span>
               </div>
             </div>
           </CardContent>
@@ -86,9 +77,7 @@ export default function DashboardPage() {
             <CardDescription>一键启动常用功能</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button className="w-full">启动浏览器</Button>
-            <Button className="w-full" variant="outline">热点监控</Button>
-            <Button className="w-full" variant="outline">合规检测</Button>
+            <LaunchBrowserButton />
           </CardContent>
         </Card>
       </div>
