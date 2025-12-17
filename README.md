@@ -6,6 +6,12 @@
 
 XHS Robot 是一个基于 Next.js 的小红书自动化管理平台，集成了 AI 驱动的内容生成、浏览器自动化、热点监控和合规检查功能。该项目演示了如何使用现代 Web 技术和 AI 模型实现内容创作自动化流程。
 
+### 生成示例
+
+<p align="center">
+  <img src="image.png" alt="XHS Robot 项目截图" width="800">
+</p>
+
 ### 主要功能
 
 - 🌐 **浏览器自动化**: 使用 Playwright 实现持久化登录和自动交互
@@ -18,14 +24,14 @@ XHS Robot 是一个基于 Next.js 的小红书自动化管理平台，集成了 
 
 ## 技术栈
 
-| 层级 | 技术 |
-|-----|------|
-| **前端** | Next.js 14 (App Router) + React + TypeScript + Tailwind CSS |
-| **UI 组件** | Shadcn/UI + Recharts |
-| **后端** | Next.js API Routes + Server Actions |
-| **数据库** | Prisma ORM + SQLite |
-| **浏览器自动化** | Playwright |
-| **AI 模型** | OpenAI SDK (支持 DashScope/Qwen 等第三方模型) |
+| 层级             | 技术                                                        |
+| ---------------- | ----------------------------------------------------------- |
+| **前端**         | Next.js 14 (App Router) + React + TypeScript + Tailwind CSS |
+| **UI 组件**      | Shadcn/UI + Recharts                                        |
+| **后端**         | Next.js API Routes + Server Actions                         |
+| **数据库**       | Prisma ORM + SQLite                                         |
+| **浏览器自动化** | Playwright                                                  |
+| **AI 模型**      | OpenAI SDK (支持 DashScope/Qwen 等第三方模型)               |
 
 ## 快速开始
 
@@ -151,11 +157,13 @@ xhs-robot/
 ## 数据库模型
 
 ### Account (账号)
+
 - `username`: 用户名
 - `status`: 状态 (pending/verified)
 - `cookie`: 登录 Cookie
 
 ### TrendData (热点数据)
+
 - `keyword`: 搜索关键词
 - `title`: 笔记标题
 - `likes`: 点赞数
@@ -163,11 +171,13 @@ xhs-robot/
 - `comments`: 评论列表 (JSON)
 
 ### GeneratedPost (生成的帖子)
+
 - `keyword`: 关键词
 - `content`: 帖子内容
 - `sourceComments`: 来源评论 (JSON)
 
 ### TaskLog (任务日志)
+
 - `type`: 任务类型
 - `status`: 运行状态
 - `details`: 详细信息
@@ -178,6 +188,7 @@ xhs-robot/
 ### 热点趋势分析
 
 系统会：
+
 1. 爬取搜索结果的前 100 篇笔记
 2. 对每篇笔记提取最热的 50 条评论
 3. 使用 `nodejieba` 进行中文分词
@@ -187,6 +198,7 @@ xhs-robot/
 ### AI 驱动的内容生成
 
 生成提示词包含：
+
 - **系统角色**: 专业的小红书内容创作者
 - **热词输入**: Top 10 热词及其出现频率
 - **评论摘要**: 热点评论摘要（最多 30 条）
@@ -199,6 +211,7 @@ xhs-robot/
 ### 浏览器自动化
 
 使用 Playwright 实现：
+
 - 持久化会话：Cookie 和登录状态保存在 `browser-user-data` 目录
 - 单例模式：全应用只维护一个浏览器实例
 - 自动登录检测：启动浏览器时自动识别登录状态
@@ -281,25 +294,33 @@ npx prisma migrate reset
 ## 常见问题
 
 ### Q: 浏览器无法启动
+
 A: 确保已安装 Playwright 浏览器：
+
 ```bash
 npx playwright install
 ```
 
 ### Q: 无法爬取评论
+
 A: 可能原因：
+
 - 小红书网站结构已更改
 - 评论使用动态加载（需增加等待时间）
 - 选择器需要更新
 
 ### Q: AI 生成内容很差
+
 A: 尝试：
+
 - 增加 `max_tokens` 以获得更长的输出
 - 调整 `temperature` 参数（0.3-0.9）
 - 优化 prompt 词语
 
 ### Q: 发布失败
+
 A: 检查：
+
 - 是否正确登录
 - 创作者中心链接是否可访问
 - 文本框和发布按钮的选择器是否正确
@@ -322,6 +343,7 @@ MIT License - 仅供学习和研究使用
 ## 声明
 
 本项目仅供学习研究之用。使用本项目时请遵守：
+
 - ✅ 所在地的法律法规
 - ✅ 小红书的服务条款和隐私政策
 - ✅ 相关的网络伦理规范
